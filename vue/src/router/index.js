@@ -26,6 +26,10 @@ import Yoga from '@/components/routine/Yoga.vue'
 import Cardio from '@/components/routine/Cardio.vue'
 import TrCenter from '@/components/search/TrCenter.vue'
 import RoutineNew from '@/components/routine/RoutineNew'
+import CreateRoutine from '@/components/routine/CreateRoutine'
+import PostCard from '@/components/board/PostCard.vue'
+import Profile from '@/components/board/Profile.vue'
+import ExistRoutine from '@/components/routine/ExistRoutine.vue'
 Vue.use(Router)
 export default new Router({
 	mode : 'history',
@@ -54,5 +58,9 @@ export default new Router({
 			{path:'/yoga',name :'yoga',component : Yoga},
 			{path:'/cardio',name :'cardio',component : Cardio},
 			{path:'/center',name :'center',component : TrCenter},
-			{path:'/routineNew',name :'routineNew',component : RoutineNew}]
+			{path:'/routineNew',name :'routineNew',component : RoutineNew},
+			{path: '/createRoutine',name :'createRoutine',component : CreateRoutine},
+			{path:'/postCard',name : 'postCard',component : PostCard},
+			{path:'/proFile',name : 'proFile',component : Profile},
+			{path:'/existRoutine',name : 'existRoutine',component : ExistRoutine}]
 })
