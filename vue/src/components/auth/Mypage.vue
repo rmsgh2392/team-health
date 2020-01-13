@@ -128,7 +128,6 @@ export default {
   },
   computed: {
     info() {
-      
       return this.$store.state.users.user;
     }
   }
