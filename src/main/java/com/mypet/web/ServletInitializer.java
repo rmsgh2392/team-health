@@ -9,5 +9,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(MypetSpringboot11Application.class);
 	}
+	
+	//test 민동인
 
 }

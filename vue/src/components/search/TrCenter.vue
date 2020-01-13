@@ -1,34 +1,26 @@
 <template>
   <div>
-    <!-- <v-app-bar>
-      <div class="category-desc clearfix">
-        <div class="sectioninfo">
-          Not sure? Here is
-          <strong>
-            <a href>가깝고 좋은 곳을 찾아보세요!!</a>
-          </strong>
-        </div>
-      </div>
-    </v-app-bar>-->
-    <v-container grid-list-lg max-width="1400">
+    <v-app-bar>
+        <v-toolbar color="purple" dark flat vertical>
+          <v-text-field
+            append-icon="mic"
+            class="mx-4"
+            flat
+            hide-details
+            label="Search"
+           
+            prepend-inner-icon="search"
+            solo-inverted
+          ></v-text-field>
+        </v-toolbar>
+    </v-app-bar>
+    <v-container max-width="1400" :margin="0" auto>
       <v-layout row wrap>
         <v-flex class="flex1">
-          <v-navigation-drawer height="1000" width="40%">
-            <div class="trainer">
-              <div class="z">
-                <div class="input-group">
-                  <input class="search-box" type="text" placeholder="search ㄱㄱ" />
-                  <button>
-                    <i class="material-icons">youtube_searched_for</i>
-                  </button>
-                </div>
-              </div>
-              <div class="z1"></div>
-            </div>
-          </v-navigation-drawer>
+          
         </v-flex>
         <v-flex class="flex2">
-          <google-map/>
+          <google-map />
         </v-flex>
       </v-layout>
       <!-- <v-navigation-drawer height="1000" width="40%">

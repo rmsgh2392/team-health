@@ -13,7 +13,7 @@
                   height="500"
                   raised
                   loading
-                  @click="move()"
+                  @click="newMove()"
                 >
                   <v-img src="@/assets/gg.png" class="dark" height="80%"></v-img>
                   <v-card-title>
@@ -36,12 +36,12 @@
                   height="500"
                   raised
                   loading
-                  @click="move()"
+                  @click="ExistMove()"
                 >
                   <v-img src="@/assets/img/qq.png" class="dark" height="80%"></v-img>
                   <v-card-title>
                     <span class="title font-weight-light">
-                      <strong>새로운 루틴</strong>
+                      <strong>기존 루틴</strong>
                     </span>
                   </v-card-title>
                 </v-card>
@@ -75,9 +75,12 @@ export default {
     return {};
   },
   methods: {
-    move() {
+    newMove() {
       alert("루틴 생성하러 가기");
-      this.$router.push(`/action`);
+      this.$router.push(`/createRoutine`)
+    },
+    ExistMove(){
+      this.$router.push(`/existRoutine`)
     }
   }
 };
