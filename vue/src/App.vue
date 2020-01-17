@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-app id="inspire">
-      <component :is="!loginCheck ? 'home' : 'login-after'" fixed-header></component>
+      <component :is="!loginCheck ? 'home' : 'login-after'"></component>
       <v-container fluid>
         <router-view />
       </v-container>
@@ -26,20 +26,12 @@ export default {
     LoginAfter,
     Foot
   },
-  // data(){return {ta : `ggggg`}},
-  // render(createElement){
-  //   const a = `<slide-show/>`
-  //   return createElement('v-container',)
-  // },
   computed: {
     loginCheck() {
       return this.$store.state.common.isAuth;
     }
   }
-};
+}
 </script>
 <style scoped>
-#app {
-  theme: dark;
-}
 </style>

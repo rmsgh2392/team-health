@@ -1,41 +1,26 @@
 <template>
   <div>
-    <v-app-bar>
-        <v-toolbar color="purple" dark flat vertical>
-          <v-text-field
-            append-icon="mic"
-            class="mx-4"
-            flat
-            hide-details
-            label="Search"
-           
-            prepend-inner-icon="search"
-            solo-inverted
-          ></v-text-field>
-        </v-toolbar>
-    </v-app-bar>
     <v-container max-width="1400" :margin="0" auto>
       <v-layout row wrap>
         <v-flex class="flex1">
-          
+          <v-navigation-drawer>
+            <v-toolbar color="purple" dark flat vertical>
+              <v-text-field
+                append-icon="mic"
+                class="mx-4"
+                flat
+                hide-details
+                label="Search"
+                prepend-inner-icon="search"
+                solo-inverted
+              ></v-text-field>
+            </v-toolbar>
+          </v-navigation-drawer>
         </v-flex>
         <v-flex class="flex2">
           <google-map />
         </v-flex>
       </v-layout>
-      <!-- <v-navigation-drawer height="1000" width="40%">
-        <div class="trainer">
-          <div class="z">
-            <div class="input-group">
-              <input class="search-box" type="text" placeholder="search ㄱㄱ" />
-              <button>
-                <i class="material-icons">youtube_searched_for</i>
-              </button>
-            </div>
-          </div>
-          <div class="z1"></div>
-        </div>
-      </v-navigation-drawer>-->
     </v-container>
   </div>
 </template>
@@ -80,7 +65,7 @@ export default {
   margin-bottom: auto;
 }
 .flex1 {
-  max-width: 30%;
+  max-width: 20%;
 }
 .flex2 {
   max-width: 70%;

@@ -8,6 +8,7 @@ import router from '@/router'
 import VueCharts from 'vue-chartjs'
 import {Bar, Line} from 'vue-chartjs'
 import * as VueGoogleMaps from "vue2-google-maps"; 
+import VueDaumMap from 'vue-daum-map'
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
@@ -26,5 +27,6 @@ new Vue({
   VueCharts,
   Bar,Line,
   VueGoogleMaps,
+  VueDaumMap,
   render: h => h(App)
 }).$mount('#app')

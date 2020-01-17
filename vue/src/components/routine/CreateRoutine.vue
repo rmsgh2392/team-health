@@ -5,49 +5,14 @@
         <v-toolbar-title>새 루틴 생성하는 방법</v-toolbar-title>
       </v-toolbar>
       <v-tabs vertical>
-        <v-tab>
-          <v-icon left>mdi-account</v-icon>주의사항 1
+        <v-tab v-for="list of lists" :key="list">
+          <v-icon left>mdi-account</v-icon>
+          {{list.keyword}}
         </v-tab>
-        <v-tab>
-          <v-icon left>mdi-lock</v-icon>주의사항 2
-        </v-tab>
-        <v-tab>
-          <v-icon left>mdi-access-point</v-icon>주의사항 3
-        </v-tab>
-
-        <v-tab-item>
+        <v-tab-item v-for="list of lists" :key="list">
           <v-card flat>
             <v-card-text>
-              <p>Sed aliquam ultrices mauris. Donec posuere vulputate arcu. Morbi ac felis. Etiam feugiat lorem non metus. Sed a libero.</p>
-              <p>Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Aliquam lobortis. Aliquam lobortis. Suspendisse non nisl sit amet velit hendrerit rutrum.</p>
-            </v-card-text>
-          </v-card>
-        </v-tab-item>
-        <v-tab-item>
-          <v-card flat>
-            <v-card-text>
-              <p>Morbi nec metus. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Nunc sed turpis.</p>
-
-              <p>Suspendisse feugiat. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. In hac habitasse platea dictumst. Fusce ac felis sit amet ligula pharetra condimentum.</p>
-
-              <p>Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Nam commodo suscipit quam. In consectetuer turpis ut velit. Sed cursus turpis vitae tortor. Aliquam eu nunc.</p>
-
-              <p>Etiam ut purus mattis mauris sodales aliquam. Ut varius tincidunt libero. Aenean viverra rhoncus pede. Duis leo. Fusce fermentum odio nec arcu.</p>
-
-              <p
-                class="mb-0"
-              >Donec venenatis vulputate lorem. Aenean viverra rhoncus pede. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Fusce commodo aliquam arcu. Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi.</p>
-            </v-card-text>
-          </v-card>
-        </v-tab-item>
-        <v-tab-item>
-          <v-card flat>
-            <v-card-text>
-              <p>Fusce a quam. Phasellus nec sem in justo pellentesque facilisis. Nam eget dui. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. In dui magna, posuere eget, vestibulum et, tempor auctor, justo.</p>
-
-              <p
-                class="mb-0"
-              >Cras sagittis. Phasellus nec sem in justo pellentesque facilisis. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nam at tortor in tellus interdum sagittis.</p>
+              <p>{{list.explain}}</p>
             </v-card-text>
           </v-card>
         </v-tab-item>
@@ -57,52 +22,89 @@
     <v-container fluid>
       <v-layout row wrap>
         <v-flex>
-          <v-card>
-            <v-tabs background-color="white" color="deep-purple accent-4" right>
-              <v-tab>Landscape</v-tab>
-              <v-tab>City</v-tab>
-              <v-tab>Abstract</v-tab>
-              <v-tab-item v-for="n in 3" :key="n">
-                <v-container fluid>
-                  <v-row>
-                    <v-col v-for="i in 6" :key="i" cols="12" md="4">
-                      <v-img
-                        :src="`https://picsum.photos/500/300?image=${i * n * 5 + 10}`"
-                        :lazy-src="`https://picsum.photos/10/6?image=${i * n * 5 + 10}`"
-                        aspect-ratio="1"
-                      ></v-img>
-                    </v-col>
-                  </v-row>
-                </v-container>
-              </v-tab-item>
-            </v-tabs>
-          </v-card>
+          <v-carousel hide-delimiters>
+            <v-carousel-item
+              v-for="(item,i) of pictures "
+              :key="i"
+              :src="item.img"
+              reverse-transition="fade-transition"
+              transition="fade-transition"
+            ></v-carousel-item>
+          </v-carousel>
         </v-flex>
         <v-flex>
-          <v-col cols="8" sm="5">
+          <v-col cols="12" lg="8">
             <v-text-field label="키"></v-text-field>
           </v-col>
-          <v-col cols="8" sm="5">
+          <v-col cols="12" sm="8">
             <v-text-field label="몸무게"></v-text-field>
           </v-col>
-          <v-col cols="8" sm="5">
+          <v-col cols="12" sm="8">
             <v-text-field label="체지방량"></v-text-field>
           </v-col>
-          <v-col cols="8" sm="5">
+          <v-col cols="12" sm="8">
             <v-text-field label="골격근량"></v-text-field>
           </v-col>
-          <v-col cols="8" sm="5"></v-col>
+          <v-col cols="12" sm="8">
+            <v-select
+              :items="divides"
+              append-outer-icon="map"
+              menu-props="auto"
+              hide-details
+              label="분할(숙련도에 맞게 선택하세요)"
+              single-line
+            ></v-select>
+          </v-col>
+          <v-btn color="error" class="mr-9" width="60%" @click="make">생성</v-btn>
         </v-flex>
         <v-flex>
-          <v-card max-width="200">
-            <v-img src="@/assets/img/protein.jpg"></v-img>
+          <v-row>
+          <v-card max-width="200" v-for="choose of invite" :key="choose">
+            <v-img :src="choose.src"></v-img>
             <v-card-title>추천상품</v-card-title>
           </v-card>
+          </v-row>
         </v-flex>
       </v-layout>
     </v-container>
   </div>
 </template>
 <script>
+export default {
+  data() {
+    return {
+      lists: [
+        {
+          keyword: "무분할",
+          explain: "무분할입니다 무분할 운동법은 이렇게 저렇게 하는겁니다"
+        },
+        { keyword: "1분할", explain: "1분할입니다" },
+        { keyword: "2분할", explain: "2분할입니다" },
+        { keyword: "3분할", explain: "3분할입니다" },
+        { keyword: "4분할", explain: "4분할입니다" },
+        { keyword: "5분할", explain: "5분할입니다" }
+      ],
+      divides: ["무분할", "1분할", "2분할", "3분할", "4분할", "5분할"],
+      pictures: [
+        { img: require("@/assets/img/zero.jpg") },
+        { img: require("@/assets/img/ironborn-intro.jpg") },
+        { img: require("@/assets/img/hero-journey-intro.jpg") },
+        { img: require("@/assets/img/totals-intro.jpg") }
+      ],
+      invite : [{src : require("@/assets/img/11.jpg")},{src : require("@/assets/img/12.jpg")},{src : require("@/assets/img/13.jpg")}]
+    }
+  },
+  methods: {
+    make() {
+      alert("생성완료");
+      this.$router.push(`/existRoutine`);
+    }
+  },
+  computed: {
+    info() {
+      return this.$store.state.users.user;
+    }
+  }
+};
 </script>
 <style></style>

@@ -9,7 +9,7 @@
             <v-text-field
               v-model="uid"
               :counter="10"
-              :rules="nameRules"
+              :rules="useridRules"
               label="userid"
               required
               loading
@@ -36,26 +36,6 @@
                 :key="n"
               ></v-checkbox>
             </v-row>
-            <!-- <v-checkbox
-              v-model="checkbox"
-              label="성별"
-              color="red"
-              value="red"
-              hide-details
-            ></v-checkbox>-->
-            <!-- <v-radio-group v-model="radios">
-              <v-col>
-              <v-radio v-for="gender of ['남','여']" :key="gender" :label="`${gender}`" :value="gender">
-              </v-radio>
-              </v-col>
-            </v-radio-group>-->
-            <!-- <v-select
-              v-model="select"
-              :items="items"
-              :rules="[v => !!v || 'Item is required']"
-              label="성별"
-              required
-            ></v-select>-->
             <v-text-field
               v-model="weight"
               :rules="weightRules"
@@ -79,7 +59,7 @@
             <v-row>
               <v-col cols="12" sm="4">
                 <v-select
-                  v-model="e2"
+                  v-model="address"
                   :items="citys"
                   append-outer-icon="map"
                   menu-props="auto"
@@ -118,6 +98,16 @@
 export default {
   data() {
     return {
+      uid : '',
+      pwd : '',
+      uname : '',
+      age : '',
+      weight : '',
+      height : '',
+      fat : '',
+      muscle : '',
+      address : '',
+      gender : '',
       dialog: false,
       valid: true,
       citys: [
@@ -139,31 +129,16 @@ export default {
         "경상남도",
         "제주특별자치도"
       ],
-      uid: "",
-      useridRules: [
-        v => !!v || "Name is required",
-        v => (v && v.length <= 10) || "ID must be less than 10 characters"
-      ],
+      useridRules: [v => !!v || "Name is required",v => (v && v.length <= 10) || "ID must be less than 10 characters"],
       weightRules: [v => !!v || "반드시 입력해주세요"],
       heightRules: [v => !!v || "필수 입력 칸"],
       fatRules: [v => !!v || "필수 입력칸"],
       muscleRules: [v => !!v || "필수 입력칸"],
-      pwd: "",
-      passRules: [
-        v => !!v || "password is required",
-        v =>
-          (v && v.length <= 12) ||
-          "영문&숫자&특수문자를 써서 12글자를 완성하세요!"
-      ],
-      email: "",
-      emailRules: [
-        v => !!v || "E-mail is required",
-        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
-      ],
+      passRules: [v => !!v || "password is required",v =>(v && v.length <= 12) || "영문&숫자&특수문자를 써서 12글자를 완성하세요!"],
       select: null,
       items: ["Item 1", "Item 2", "Item 3", "Item 4"],
       checkbox: false
-    };
+    }
   },
   methods: {
     validate() {

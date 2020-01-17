@@ -10,5 +10,9 @@ export default {
 		getContext : state => state.context
 	},
 	actions : {},
-	mutations : {}
+	mutations : {
+		switchIsAuth : (state ,payload) =>{
+			state.isAuth  = payload
+		}
+	}
 }

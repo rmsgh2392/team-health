@@ -9,7 +9,6 @@
           <login />
         </v-row>
         <v-row style="margin-right:250px; margin-top:14px;">
-          <!-- <v-btn color="black" dark fixed center @click="join" style="font-size:15px">회원가입</v-btn> -->
           <join/>
         </v-row>
       </v-toolbar-items>

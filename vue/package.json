@@ -8,10 +8,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "aws-sdk": "^2.603.0",
     "chart.js": "^2.9.3",
     "core-js": "^3.4.4",
+    "filepond": "^4.9.4",
     "vue": "^2.6.10",
     "vue-chartjs": "^3.5.0",
+    "vue-daum-map": "^1.0.15",
+    "vue-filepond": "^6.0.0",
     "vue2-google-maps": "^0.10.7",
     "vuetify": "^2.1.0"
   },
