@@ -17,7 +17,7 @@
     "vue-daum-map": "^1.0.15",
     "vue-filepond": "^6.0.0",
     "vue2-google-maps": "^0.10.7",
-    "vuetify": "^2.1.0"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
